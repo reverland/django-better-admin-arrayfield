@@ -31,7 +31,7 @@ addons:
     sources:
       - sourceline: 'ppa:travis-ci/sqlite3'
     packages:
-      - sqlite3
+      - sqlite3.7.15.1-1~travis1
 
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
