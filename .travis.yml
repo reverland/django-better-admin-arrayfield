@@ -26,13 +26,13 @@ matrix:
         - TOX_ENV=django22-py37
 
 
-before_install:
-  # The default version of sqlite on travis doesn't support bulk inserts.
-  - sudo apt-get -y update
-  - sudo sqlite3 -version
-  - sudo apt-cache madison sqlite3
-  - sudo apt-get -y install sqlite3
-  - sudo sqlite3 -version
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:travis-ci/sqlite3'
+    packages:
+      - sqlite3
+
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -r requirements_test.txt
