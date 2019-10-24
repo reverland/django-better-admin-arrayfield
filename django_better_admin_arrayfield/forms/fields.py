@@ -12,7 +12,7 @@ class DynamicArrayField(forms.Field):
     def __init__(self, base_field, **kwargs):
         self.base_field = base_field
         self.max_length = kwargs.pop("max_length", None)
-        kwargs.setdefault("widget", DynamicArrayWidget)
+        kwargs.setdefault("widget", DynamicArrayWidget(attrs={'choices': base_field.choices}))
         super().__init__(**kwargs)
 
     def clean(self, value):

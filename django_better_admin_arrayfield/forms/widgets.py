@@ -18,7 +18,7 @@ class DynamicArrayWidget(forms.TextInput):
             widget_attrs = final_attrs.copy()
             if id_:
                 widget_attrs["id"] = "{id_}_{index}".format(id_=id_, index=index)
-            widget = forms.TextInput()
+            widget = forms.Select(choices=final_attrs["choices"])
             widget.is_required = self.is_required
             subwidgets.append(widget.get_context(name, item, widget_attrs)["widget"])
 
